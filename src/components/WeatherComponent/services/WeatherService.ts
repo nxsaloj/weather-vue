@@ -1,8 +1,8 @@
-import { Weather } from '../type/Weather'
+import { WeatherData } from '../type/Weather'
 
 const weatherApiToken = process.env.VUE_APP_WEATHER_API_TOKEN
 
-export const fetchWeatherByLatLon = (lat:number, lon: number):Promise<Weather> => {
+export const fetchWeatherByLatLon = (lat:number, lon: number):Promise<WeatherData> => {
   const options = {
     method: 'GET',
     headers: {
