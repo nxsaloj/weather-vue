@@ -3,7 +3,7 @@ import { City } from '../type/City'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useCityStore = defineStore('metaPhoto', () => {
+export const useCityStore = defineStore('cityStore', () => {
   const cities = ref<City[]>([])
 
   const fetchCities = (cityName: string) => {

@@ -1,13 +1,13 @@
 import { fetchWeatherByLatLon } from '../services/WeatherService'
-import { Weather } from '../type/Weather'
+import { WeatherData } from '../type/Weather'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useWeatherStore = defineStore('metaPhoto', () => {
-  const weather = ref<Weather>()
+export const useWeatherStore = defineStore('weatherStore', () => {
+  const weather = ref<WeatherData>()
 
   const fetchWeather = (lat: number, lon: number) => {
-    fetchWeatherByLatLon(lat, lon).then((data: Weather) => {
+    fetchWeatherByLatLon(lat, lon).then((data: WeatherData) => {
       weather.value = data
     })
   }
