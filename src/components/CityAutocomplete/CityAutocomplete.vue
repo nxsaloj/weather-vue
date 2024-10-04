@@ -5,8 +5,8 @@
     label="Ciudad"
     :items="cities"
     item-title="name"
-    @update:search="search"
-    @change.capture="cityChanged"></v-autocomplete>
+    return-object
+    @update:search="search"></v-autocomplete>
   </div>
 </template>
 <script setup lang="ts">
@@ -18,22 +18,13 @@ import { debounce } from '@/composable/debounce'
 import { storeToRefs } from 'pinia'
 
 const cityStore = useCityStore()
-const { fetchCities } = cityStore
 const { cities } = storeToRefs(cityStore)
 
 const search = (searchTerm:string) => {
   if (!searchTerm) return false
 
-  debounce(() => {
-    fetchCities(searchTerm)
-  }, 800)()
+  cityStore.fetchCities(searchTerm)
 }
 
-const city = ref()
 const model = defineModel<CityType>()
-
-watch(model, (currentValue, oldValue) => {
-  console.log('WatchAC', currentValue)
-  console.log('WatchAC', oldValue)
-})
 </script>
