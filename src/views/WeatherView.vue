@@ -15,5 +15,5 @@ import { City } from '../components/city/type/City'
 import CityAutocomplete from '@/components/CityAutocomplete/CityAutocomplete.vue'
 import WeatherComponent from '@/components/WeatherComponent/WeatherComponent.vue'
 
-const defaultCity = ref<City|null>(null)
+const defaultCity = ref<City|undefined>()
 </script>
